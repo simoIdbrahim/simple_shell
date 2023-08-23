@@ -39,14 +39,12 @@ int _myexit(info_t *info)
 
 int _mycd(info_t *info)
 {
-	char buffer[1024];
+	char *targetDir, buffer[1024];
 	char *currentPath = getcwd(buffer, sizeof(buffer));
+	int chdirResult = -1;
 
 	if (!currentPath)
 		_puts("TODO: >>getcwd failure message here<<\n");
-
-	char *targetDir = NULL;
-	int chdirResult = -1;
 
 	if (info->argv[1])
 	{

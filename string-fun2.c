@@ -25,19 +25,21 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * strdup - copy the str.
+ * _strdup - copy the str.
  * @str: two string.
  *
  * Return: pointer two string.
  */
 
-char *strdup(const char *str)
+char *_strdup(const char *str)
 {
 	int len = 0;
 	char *result;
 
 	if (str == NULL)
+	{
 		return (NULL);
+	}
 	while (*str++)
 		len++;
 	result = malloc(sizeof(char) * (len + 1));

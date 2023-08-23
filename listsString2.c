@@ -25,7 +25,7 @@ size_t list_len(const list_t *h)
 char **list_to_strings(list_t *head)
 {
 	list_t *node = head;
-	size_t count = list_len(head);
+	size_t count = list_len(head), count2;
 	char **strings;
 	char *string;
 
@@ -40,14 +40,14 @@ char **list_to_strings(list_t *head)
 		return (NULL);
 	}
 
-	for (size_t i = 0; node; node = node->next, i++)
+	for (count = 0; node; node = node->next, count++)
 	{
 		string = (char *)malloc(_strlen(node->str) + 1);
 		if (!string)
 		{
-			for (size_t ind = 0; ind < count; ind++)
+			for (count2 = 0; count2 < count; count2++)
 			{
-				free(strings[ind]);
+				free(strings[count2]);
 			}
 			free(strings);
 			return (NULL);
@@ -106,13 +106,13 @@ list_t *node_starts_with(list_t *node, char *prefix, char c)
 }
 
 /**
- * get_node - Get the ind of a node in the list.
+ * get_node_index - Get the ind of a node in the list.
  * @head: arg ptr the list head.
  * @node: arg ptr the node.
  * Return: Ind of node or -1.
  */
 
-ssize_t get_node(list_t *head, list_t *node)
+ssize_t get_node_index(list_t *head, list_t *node)
 {
 	size_t idx;
 

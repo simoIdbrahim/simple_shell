@@ -82,12 +82,12 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 }
 
 /**
- * print_str_list - Print element of list_t linked list
+ * print_list_str - Print element of list_t linked list
  * @h: ptr to first NODE
  * Return: Size list
  */
 
-size_t print_str_list(const list_t *h)
+size_t print_list_str(const list_t *h)
 {
 	size_t ind = 0;
 
